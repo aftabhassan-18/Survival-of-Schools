@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spillover Effects of Grants — Hassan Aftab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f3ec;
+    --bg-panel:#fbf9f4;
+    --ink:#2a251d;
+    --ink-dim:#7c7568;
+    --line:#e1dbcb;
+    --exit:#c1583e;
+    --safe:#4c8a72;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:800px; margin:0 auto; padding:80px 28px 60px;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:20px;
+  }
+  .eyebrow::before{content:"— "; color:var(--exit);}
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2rem, 4.6vw, 3.05rem);
+    line-height:1.16;
+    margin:0 0 20px;
+    max-width:18ch;
+  }
+  h1 em{font-style:italic; color:var(--exit);}
+
+  .dek{
+    font-size:1.1rem;
+    color:var(--ink-dim);
+    max-width:58ch;
+    margin:0 0 30px;
+  }
+
+  .byline{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    margin-bottom:48px;
+  }
+  .byline b{color:var(--ink); font-weight:500;}
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-bottom:48px;
+  }
+  .stat{padding:22px 18px 22px 0;}
+  .stat + .stat{border-left:1px solid var(--line); padding-left:18px;}
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size:1.75rem;
+    font-weight:500;
+    color:var(--exit);
+    display:block;
+  }
+  .stat .num.safe{color:var(--safe);}
+  .stat .lbl{font-size:11.5px; color:var(--ink-dim); margin-top:5px; line-height:1.4;}
+
+  .panel{margin-bottom:40px;}
+  .panel h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    margin:0 0 4px;
+    max-width:34ch;
+  }
+  .panel .sub{font-size:13px; color:var(--ink-dim); margin-bottom:16px;}
+
+  .legend{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    display:flex;
+    gap:18px;
+    margin-bottom:12px;
+  }
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
+  .dot.exit{background:var(--exit);}
+  .dot.safe{background:var(--safe);}
+
+  .caption{
+    font-size:12px;
+    color:var(--ink-dim);
+    margin-top:12px;
+    max-width:64ch;
+  }
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  @media (max-width:640px){ .two-col{grid-template-columns:1fr;} }
+
+  p{max-width:64ch; font-size:1rem; color:var(--ink);}
+
+  .link-out{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--exit);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+
+  footer{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    margin-top:56px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="eyebrow">Development Economics · Senior Seminar</div>
+    <h1>Grants raised exits everywhere — but not more for <em>untreated</em> rivals</h1>
+    <p class="dek">Across 855 rural Pakistani schools, closures rose sharply after a round of grants went out. But schools sitting next to a newly-funded competitor were no more likely to close than anyone else.</p>
+    <div class="byline"><b>Hassan Aftab</b>, Pitzer College · LEAPS panel data</div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="num">855</span>
+        <span class="lbl">schools, 266 villages, Faisalabad district</span>
+      </div>
+      <div class="stat">
+        <span class="num">4,275</span>
+        <span class="lbl">school-round observations, 2012–2014</span>
+      </div>
+      <div class="stat">
+        <span class="num">+9–17pp</span>
+        <span class="lbl">rise in exit rates after the grant cycle</span>
+      </div>
+      <div class="stat">
+        <span class="num safe">~0pp</span>
+        <span class="lbl">added exit risk for untreated schools nearby</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Overall exit risk climbed. The spillover onto neighbors never showed up.</h3>
+      <div class="sub">Post-grant effect (β₁) vs. spillover onto untreated rivals (β₃) — untreated-schools sample</div>
+      <div class="legend">
+        <span><i class="dot exit"></i>Post-grant exit effect</span>
+        <span><i class="dot safe"></i>Spillover onto untreated rivals</span>
+      </div>
+
+      <svg viewBox="0 0 720 260" width="100%" role="img" aria-label="Regression coefficients across three specifications">
+        <line x1="194" y1="20" x2="194" y2="225" stroke="#c9c2ab" stroke-width="1"/>
+        <line x1="80" y1="20" x2="80" y2="225" stroke="#e1dbcb" stroke-width="1"/>
+        <line x1="650" y1="20" x2="650" y2="225" stroke="#e1dbcb" stroke-width="1"/>
+        <text x="80" y="12" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">-5pp</text>
+        <text x="194" y="12" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">0</text>
+        <text x="650" y="12" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">+20pp</text>
+
+        <text x="80" y="58" fill="#2a251d" font-family="IBM Plex Mono, monospace" font-size="12">Baseline</text>
+        <line x1="80" y1="70" x2="650" y2="70" stroke="#e1dbcb" stroke-width="1"/>
+        <circle cx="155.2" cy="70" r="6.5" fill="#4c8a72"/>
+        <circle cx="401.5" cy="70" r="6.5" fill="#c1583e"/>
+        <text x="155.2" y="90" fill="#4c8a72" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">-1.7</text>
+        <text x="401.5" y="90" fill="#c1583e" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">+9.1***</text>
+
+        <text x="80" y="130" fill="#2a251d" font-family="IBM Plex Mono, monospace" font-size="12">+ Controls</text>
+        <line x1="80" y1="142" x2="650" y2="142" stroke="#e1dbcb" stroke-width="1"/>
+        <circle cx="153" cy="142" r="6.5" fill="#4c8a72"/>
+        <circle cx="483.6" cy="142" r="6.5" fill="#c1583e"/>
+        <text x="153" y="162" fill="#4c8a72" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">-1.8</text>
+        <text x="483.6" y="162" fill="#c1583e" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">+12.7***</text>
+
+        <text x="80" y="202" fill="#2a251d" font-family="IBM Plex Mono, monospace" font-size="12">+ HHI</text>
+        <line x1="80" y1="214" x2="650" y2="214" stroke="#e1dbcb" stroke-width="1"/>
+        <circle cx="162.1" cy="214" r="6.5" fill="#4c8a72"/>
+        <circle cx="577" cy="214" r="6.5" fill="#c1583e"/>
+        <text x="162.1" y="234" fill="#4c8a72" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">-1.4</text>
+        <text x="577" y="234" fill="#c1583e" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">+16.8***</text>
+      </svg>
+
+      <div class="caption">Source: LEAPS panel, untreated-schools sample. The post-grant exit effect grows from +9.1pp to +16.8pp as controls and market concentration (HHI) are added — but the spillover term barely moves, staying between −1.4 and −1.8pp and statistically insignificant throughout. Market concentration didn't change this story either. ***p&lt;0.01.</div>
+    </div>
+
+    <div class="panel">
+      <h3>Exit rates climbed in both groups — control villages ran slightly ahead</h3>
+      <div class="sub">School exit rate by survey round (Figure 1 in the paper)</div>
+      <div class="legend">
+        <span><i class="dot exit"></i>Control villages</span>
+        <span><i class="dot safe"></i>Treated villages</span>
+      </div>
+
+      <svg viewBox="0 0 720 220" width="100%" role="img" aria-label="School exit rates over time, control vs treated villages">
+        <line x1="80" y1="20" x2="80" y2="185" stroke="#e1dbcb" stroke-width="1"/>
+        <line x1="80" y1="185" x2="650" y2="185" stroke="#c9c2ab" stroke-width="1"/>
+        <text x="60" y="24" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="end">higher</text>
+        <text x="60" y="185" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="end">lower</text>
+        <text x="80" y="205" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">Round 2</text>
+        <text x="365" y="205" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">Round 3</text>
+        <text x="650" y="205" fill="#7c7568" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">Round 5</text>
+
+        <polyline points="80,165 270,150 460,90 650,45" fill="none" stroke="#c1583e" stroke-width="2.5"/>
+        <polyline points="80,172 270,152 460,110 650,80" fill="none" stroke="#4c8a72" stroke-width="2.5"/>
+
+        <circle cx="80" cy="165" r="4.5" fill="#c1583e"/>
+        <circle cx="270" cy="150" r="4.5" fill="#c1583e"/>
+        <circle cx="460" cy="90" r="4.5" fill="#c1583e"/>
+        <circle cx="650" cy="45" r="4.5" fill="#c1583e"/>
+
+        <circle cx="80" cy="172" r="4.5" fill="#4c8a72"/>
+        <circle cx="270" cy="152" r="4.5" fill="#4c8a72"/>
+        <circle cx="460" cy="110" r="4.5" fill="#4c8a72"/>
+        <circle cx="650" cy="80" r="4.5" fill="#4c8a72"/>
+      </svg>
+
+      <div class="caption">Recreated from Figure 1 in the paper. Exit stays low through round 3, then rises sharply — control villages track slightly above treated throughout, consistent with treatment modestly softening exit rather than accelerating it.</div>
+    </div>
+
+    <p>Untreated schools sit above their own survival threshold and stayed there — the grant to a neighbor didn't push them below it, whether the local market was concentrated or competitive. What did matter was baseline strength: schools with better infrastructure were more resilient, and older untreated schools were more likely to exit, consistent with displacement by newer, better-funded entrants rather than by market-wide competitive pressure.</p>
+
+    <p><a class="link-out" href="paper.pdf">View full research paper →</a></p>
+
+    <footer>Hassan Aftab · Pitzer College · PZ ECON 198, Economics Senior Seminar</footer>
+  </div>
+</body>
+</html>
